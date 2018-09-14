@@ -17,6 +17,8 @@ namespace toroid
 {
     public partial class Form1 : Form
     {
+        static public int brz_prim, brz_sek, ssek1;
+        static public string RBR;
         static public double f, fak_3, snaga, r_snaga, Afe, Dizo = 0.2;
         static public double un_pr_je, va_pr_je, sir_je, T_jez, prim_U, sek_U, i_prim, i_sek;
         static public double sir_izo, dulj_izo, dulj_izo_pr;
@@ -25,7 +27,6 @@ namespace toroid
         static public double dt, d_nam, gpros, k;
         static public double fi_prim, fi_sek, pr_prim, pr_sek;
         static public double K_U, p_gub_jez, B, pr_sek_u, gsek, Gi_sek;
-        static public int brz_prim, brz_sek, ssek1;
         static public double lprim, t_prim, rprim, gprim, Gi_prim, dprim, sprim, p_gub, dost_ko;
         static public double s_izo_p, s_izo_s, n_sek_n, n_prim_n, lsek, rsek, t_sek, l_izo_s, suk_ko, vuk_ko;
         static public double ssek, opseg1, opseg2, dost, aost, ajez, acu_sek, acu_prim;
@@ -475,6 +476,8 @@ namespace toroid
 
             txtDebljinaNamotaja.Text = d_nam.ToString("0.0");
             txtMaxGustocaStruje.Text = gpros.ToString("0.00");
+
+            RBR = txtRBR.Text;
         }
 
         private void btnIspis_Click(object sender, EventArgs e)
@@ -492,7 +495,7 @@ namespace toroid
             XFont font = new XFont("Consolas", 12, XFontStyle.Regular, options);
             graph.DrawString(FirstCharToUpper(culture.DateTimeFormat.GetDayName(DateTime.Today.DayOfWeek).ToString()) + ", " + DateTime.Now.ToString(), font, XBrushes.Black, new XRect(lpoz, 10, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
             graph.DrawString("-------------------------------------------------------------------------------------", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
-            graph.DrawString("TOROID d.o.o.          PRORAČUN TOROIDNOG TRANSFORMATORA                               ", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
+            graph.DrawString("TOROID d.o.o.            PRORAČUN TOROIDNOG TRANSFORMATORA                Broj: " + RBR, font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
             graph.DrawString("-------------------------------------------------------------------------------------", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
             graph.DrawString("JEZGRA: " + Math.Round(snaga, 0) + " / " + Math.Round(snaga, 1).ToString("0.00") + " (VA)   B = " + B.ToString("0.000") + " (T)", font, XBrushes.Black, new XRect(50, poz += 15, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
             graph.DrawString("-------------------------------------------------------------------------------------", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
@@ -561,7 +564,7 @@ namespace toroid
             poz = 30;
             graph2.DrawString(FirstCharToUpper(culture.DateTimeFormat.GetDayName(DateTime.Today.DayOfWeek).ToString()) + ", " + DateTime.Now.ToString(), font, XBrushes.Black, new XRect(lpoz, 10, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
             graph2.DrawString("-------------------------------------------------------------------------------------", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
-            graph2.DrawString("TOROID d.o.o.      NALOG ZA IZRADU TOROIDNIH TRANSFORMATORA       Broj: ?", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
+            graph2.DrawString("TOROID d.o.o.           NALOG ZA IZRADU TOROIDNIH TRANSFORMATORA          Broj: " + RBR, font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
             graph2.DrawString("-------------------------------------------------------------------------------------", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
             graph2.DrawString("JEZGRA: " + snaga.ToString("0.00") + " (VA)", font, XBrushes.Black, new XRect(50, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
             graph2.DrawString("-------------------------------------------------------------------------------------", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);

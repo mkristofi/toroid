@@ -104,6 +104,8 @@
             this.txtDozvoljenoZagrijavanje = new System.Windows.Forms.TextBox();
             this.txtDebljinaNamotaja = new System.Windows.Forms.TextBox();
             this.txtMaxGustocaStruje = new System.Windows.Forms.TextBox();
+            this.lblRBR = new System.Windows.Forms.Label();
+            this.txtRBR = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,7 +113,7 @@
             // 
             this.labelJezgre.AutoSize = true;
             this.labelJezgre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelJezgre.Location = new System.Drawing.Point(51, 106);
+            this.labelJezgre.Location = new System.Drawing.Point(48, 66);
             this.labelJezgre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelJezgre.Name = "labelJezgre";
             this.labelJezgre.Size = new System.Drawing.Size(55, 17);
@@ -122,7 +124,7 @@
             // 
             this.lblVanjskiPromjer.AutoSize = true;
             this.lblVanjskiPromjer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblVanjskiPromjer.Location = new System.Drawing.Point(52, 151);
+            this.lblVanjskiPromjer.Location = new System.Drawing.Point(49, 111);
             this.lblVanjskiPromjer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVanjskiPromjer.Name = "lblVanjskiPromjer";
             this.lblVanjskiPromjer.Size = new System.Drawing.Size(141, 17);
@@ -132,7 +134,7 @@
             // txtVanjskiPromjer
             // 
             this.txtVanjskiPromjer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtVanjskiPromjer.Location = new System.Drawing.Point(264, 148);
+            this.txtVanjskiPromjer.Location = new System.Drawing.Point(261, 108);
             this.txtVanjskiPromjer.Margin = new System.Windows.Forms.Padding(4);
             this.txtVanjskiPromjer.Name = "txtVanjskiPromjer";
             this.txtVanjskiPromjer.Size = new System.Drawing.Size(68, 23);
@@ -141,7 +143,7 @@
             // txtUnutarnjiPromjer
             // 
             this.txtUnutarnjiPromjer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtUnutarnjiPromjer.Location = new System.Drawing.Point(264, 178);
+            this.txtUnutarnjiPromjer.Location = new System.Drawing.Point(261, 138);
             this.txtUnutarnjiPromjer.Margin = new System.Windows.Forms.Padding(4);
             this.txtUnutarnjiPromjer.Name = "txtUnutarnjiPromjer";
             this.txtUnutarnjiPromjer.Size = new System.Drawing.Size(68, 23);
@@ -151,7 +153,7 @@
             // 
             this.lblUnutarnjiPromjer.AutoSize = true;
             this.lblUnutarnjiPromjer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblUnutarnjiPromjer.Location = new System.Drawing.Point(52, 182);
+            this.lblUnutarnjiPromjer.Location = new System.Drawing.Point(49, 142);
             this.lblUnutarnjiPromjer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUnutarnjiPromjer.Name = "lblUnutarnjiPromjer";
             this.lblUnutarnjiPromjer.Size = new System.Drawing.Size(153, 17);
@@ -161,7 +163,7 @@
             // txtSirinaJezgre
             // 
             this.txtSirinaJezgre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtSirinaJezgre.Location = new System.Drawing.Point(264, 210);
+            this.txtSirinaJezgre.Location = new System.Drawing.Point(261, 170);
             this.txtSirinaJezgre.Margin = new System.Windows.Forms.Padding(4);
             this.txtSirinaJezgre.Name = "txtSirinaJezgre";
             this.txtSirinaJezgre.Size = new System.Drawing.Size(68, 23);
@@ -171,7 +173,7 @@
             // 
             this.lblSirinaJezgre.AutoSize = true;
             this.lblSirinaJezgre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblSirinaJezgre.Location = new System.Drawing.Point(52, 214);
+            this.lblSirinaJezgre.Location = new System.Drawing.Point(49, 174);
             this.lblSirinaJezgre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSirinaJezgre.Name = "lblSirinaJezgre";
             this.lblSirinaJezgre.Size = new System.Drawing.Size(123, 17);
@@ -181,7 +183,7 @@
             // txtPovrsinaPresjeka
             // 
             this.txtPovrsinaPresjeka.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtPovrsinaPresjeka.Location = new System.Drawing.Point(264, 242);
+            this.txtPovrsinaPresjeka.Location = new System.Drawing.Point(261, 202);
             this.txtPovrsinaPresjeka.Margin = new System.Windows.Forms.Padding(4);
             this.txtPovrsinaPresjeka.Name = "txtPovrsinaPresjeka";
             this.txtPovrsinaPresjeka.Size = new System.Drawing.Size(68, 23);
@@ -191,7 +193,7 @@
             // 
             this.lblPovrsinaPresjeka.AutoSize = true;
             this.lblPovrsinaPresjeka.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblPovrsinaPresjeka.Location = new System.Drawing.Point(52, 246);
+            this.lblPovrsinaPresjeka.Location = new System.Drawing.Point(49, 206);
             this.lblPovrsinaPresjeka.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPovrsinaPresjeka.Name = "lblPovrsinaPresjeka";
             this.lblPovrsinaPresjeka.Size = new System.Drawing.Size(158, 17);
@@ -201,7 +203,7 @@
             // txtFrekvencija
             // 
             this.txtFrekvencija.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtFrekvencija.Location = new System.Drawing.Point(264, 274);
+            this.txtFrekvencija.Location = new System.Drawing.Point(261, 234);
             this.txtFrekvencija.Margin = new System.Windows.Forms.Padding(4);
             this.txtFrekvencija.Name = "txtFrekvencija";
             this.txtFrekvencija.Size = new System.Drawing.Size(68, 23);
@@ -212,7 +214,7 @@
             // 
             this.lblFrekvencija.AutoSize = true;
             this.lblFrekvencija.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblFrekvencija.Location = new System.Drawing.Point(52, 278);
+            this.lblFrekvencija.Location = new System.Drawing.Point(49, 238);
             this.lblFrekvencija.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFrekvencija.Name = "lblFrekvencija";
             this.lblFrekvencija.Size = new System.Drawing.Size(111, 17);
@@ -222,7 +224,7 @@
             // txtNazivnaSnaga
             // 
             this.txtNazivnaSnaga.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtNazivnaSnaga.Location = new System.Drawing.Point(263, 306);
+            this.txtNazivnaSnaga.Location = new System.Drawing.Point(260, 266);
             this.txtNazivnaSnaga.Margin = new System.Windows.Forms.Padding(4);
             this.txtNazivnaSnaga.Name = "txtNazivnaSnaga";
             this.txtNazivnaSnaga.Size = new System.Drawing.Size(68, 23);
@@ -232,7 +234,7 @@
             // 
             this.lblNazivnaSnaga.AutoSize = true;
             this.lblNazivnaSnaga.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblNazivnaSnaga.Location = new System.Drawing.Point(52, 310);
+            this.lblNazivnaSnaga.Location = new System.Drawing.Point(49, 270);
             this.lblNazivnaSnaga.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNazivnaSnaga.Name = "lblNazivnaSnaga";
             this.lblNazivnaSnaga.Size = new System.Drawing.Size(134, 17);
@@ -243,7 +245,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label7.Location = new System.Drawing.Point(165, 106);
+            this.label7.Location = new System.Drawing.Point(162, 66);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 17);
@@ -253,7 +255,7 @@
             // txtJezgraDH
             // 
             this.txtJezgraDH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtJezgraDH.Location = new System.Drawing.Point(204, 103);
+            this.txtJezgraDH.Location = new System.Drawing.Point(201, 63);
             this.txtJezgraDH.Margin = new System.Windows.Forms.Padding(4);
             this.txtJezgraDH.Name = "txtJezgraDH";
             this.txtJezgraDH.Size = new System.Drawing.Size(53, 23);
@@ -263,7 +265,7 @@
             // txtJezgraFi
             // 
             this.txtJezgraFi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtJezgraFi.Location = new System.Drawing.Point(296, 103);
+            this.txtJezgraFi.Location = new System.Drawing.Point(293, 63);
             this.txtJezgraFi.Margin = new System.Windows.Forms.Padding(4);
             this.txtJezgraFi.Name = "txtJezgraFi";
             this.txtJezgraFi.Size = new System.Drawing.Size(53, 23);
@@ -274,7 +276,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label8.Location = new System.Drawing.Point(265, 106);
+            this.label8.Location = new System.Drawing.Point(262, 66);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(35, 17);
@@ -284,7 +286,7 @@
             // txtJezgraFfe
             // 
             this.txtJezgraFfe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtJezgraFfe.Location = new System.Drawing.Point(395, 103);
+            this.txtJezgraFfe.Location = new System.Drawing.Point(392, 63);
             this.txtJezgraFfe.Margin = new System.Windows.Forms.Padding(4);
             this.txtJezgraFfe.Name = "txtJezgraFfe";
             this.txtJezgraFfe.Size = new System.Drawing.Size(53, 23);
@@ -295,7 +297,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label9.Location = new System.Drawing.Point(357, 106);
+            this.label9.Location = new System.Drawing.Point(354, 66);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(40, 17);
@@ -305,7 +307,7 @@
             // txtPrimarniNapon
             // 
             this.txtPrimarniNapon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtPrimarniNapon.Location = new System.Drawing.Point(263, 338);
+            this.txtPrimarniNapon.Location = new System.Drawing.Point(260, 298);
             this.txtPrimarniNapon.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrimarniNapon.Name = "txtPrimarniNapon";
             this.txtPrimarniNapon.Size = new System.Drawing.Size(68, 23);
@@ -316,7 +318,7 @@
             // 
             this.lblPrimarniNapon.AutoSize = true;
             this.lblPrimarniNapon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblPrimarniNapon.Location = new System.Drawing.Point(52, 342);
+            this.lblPrimarniNapon.Location = new System.Drawing.Point(49, 302);
             this.lblPrimarniNapon.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPrimarniNapon.Name = "lblPrimarniNapon";
             this.lblPrimarniNapon.Size = new System.Drawing.Size(127, 17);
@@ -326,7 +328,7 @@
             // txtSekundarniNapon
             // 
             this.txtSekundarniNapon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtSekundarniNapon.Location = new System.Drawing.Point(264, 370);
+            this.txtSekundarniNapon.Location = new System.Drawing.Point(261, 330);
             this.txtSekundarniNapon.Margin = new System.Windows.Forms.Padding(4);
             this.txtSekundarniNapon.Name = "txtSekundarniNapon";
             this.txtSekundarniNapon.Size = new System.Drawing.Size(68, 23);
@@ -336,7 +338,7 @@
             // 
             this.lblSekundarniNapon.AutoSize = true;
             this.lblSekundarniNapon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblSekundarniNapon.Location = new System.Drawing.Point(52, 374);
+            this.lblSekundarniNapon.Location = new System.Drawing.Point(49, 334);
             this.lblSekundarniNapon.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSekundarniNapon.Name = "lblSekundarniNapon";
             this.lblSekundarniNapon.Size = new System.Drawing.Size(147, 17);
@@ -346,7 +348,7 @@
             // txtIndukcija
             // 
             this.txtIndukcija.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtIndukcija.Location = new System.Drawing.Point(264, 402);
+            this.txtIndukcija.Location = new System.Drawing.Point(261, 362);
             this.txtIndukcija.Margin = new System.Windows.Forms.Padding(4);
             this.txtIndukcija.Name = "txtIndukcija";
             this.txtIndukcija.Size = new System.Drawing.Size(68, 23);
@@ -357,7 +359,7 @@
             // 
             this.lblMaxIndukcija.AutoSize = true;
             this.lblMaxIndukcija.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblMaxIndukcija.Location = new System.Drawing.Point(52, 406);
+            this.lblMaxIndukcija.Location = new System.Drawing.Point(49, 366);
             this.lblMaxIndukcija.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMaxIndukcija.Name = "lblMaxIndukcija";
             this.lblMaxIndukcija.Size = new System.Drawing.Size(119, 17);
@@ -368,7 +370,7 @@
             // 
             this.lblGustocaStrujeLbl.AutoSize = true;
             this.lblGustocaStrujeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblGustocaStrujeLbl.Location = new System.Drawing.Point(51, 437);
+            this.lblGustocaStrujeLbl.Location = new System.Drawing.Point(48, 397);
             this.lblGustocaStrujeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGustocaStrujeLbl.Name = "lblGustocaStrujeLbl";
             this.lblGustocaStrujeLbl.Size = new System.Drawing.Size(128, 17);
@@ -379,7 +381,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label14.Location = new System.Drawing.Point(51, 527);
+            this.label14.Location = new System.Drawing.Point(48, 487);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(64, 17);
@@ -390,7 +392,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label15.Location = new System.Drawing.Point(51, 555);
+            this.label15.Location = new System.Drawing.Point(48, 515);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(78, 17);
@@ -401,7 +403,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label16.Location = new System.Drawing.Point(51, 582);
+            this.label16.Location = new System.Drawing.Point(48, 542);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(86, 17);
@@ -412,7 +414,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label17.Location = new System.Drawing.Point(52, 672);
+            this.label17.Location = new System.Drawing.Point(49, 632);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(86, 17);
@@ -423,7 +425,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label18.Location = new System.Drawing.Point(52, 645);
+            this.label18.Location = new System.Drawing.Point(49, 605);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(78, 17);
@@ -434,7 +436,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label19.Location = new System.Drawing.Point(52, 617);
+            this.label19.Location = new System.Drawing.Point(49, 577);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(88, 17);
@@ -445,7 +447,7 @@
             // 
             this.lblBrojZavojaPrim.AutoSize = true;
             this.lblBrojZavojaPrim.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblBrojZavojaPrim.Location = new System.Drawing.Point(189, 555);
+            this.lblBrojZavojaPrim.Location = new System.Drawing.Point(186, 515);
             this.lblBrojZavojaPrim.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBrojZavojaPrim.Name = "lblBrojZavojaPrim";
             this.lblBrojZavojaPrim.Size = new System.Drawing.Size(147, 17);
@@ -457,7 +459,7 @@
             // 
             this.lblPromjerZicePrim.AutoSize = true;
             this.lblPromjerZicePrim.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblPromjerZicePrim.Location = new System.Drawing.Point(189, 582);
+            this.lblPromjerZicePrim.Location = new System.Drawing.Point(186, 542);
             this.lblPromjerZicePrim.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPromjerZicePrim.Name = "lblPromjerZicePrim";
             this.lblPromjerZicePrim.Size = new System.Drawing.Size(155, 17);
@@ -469,7 +471,7 @@
             // 
             this.lblBrojZavojaSek.AutoSize = true;
             this.lblBrojZavojaSek.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblBrojZavojaSek.Location = new System.Drawing.Point(189, 645);
+            this.lblBrojZavojaSek.Location = new System.Drawing.Point(186, 605);
             this.lblBrojZavojaSek.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBrojZavojaSek.Name = "lblBrojZavojaSek";
             this.lblBrojZavojaSek.Size = new System.Drawing.Size(142, 17);
@@ -481,7 +483,7 @@
             // 
             this.lblPromjerZiceSek.AutoSize = true;
             this.lblPromjerZiceSek.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblPromjerZiceSek.Location = new System.Drawing.Point(189, 672);
+            this.lblPromjerZiceSek.Location = new System.Drawing.Point(186, 632);
             this.lblPromjerZiceSek.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPromjerZiceSek.Name = "lblPromjerZiceSek";
             this.lblPromjerZiceSek.Size = new System.Drawing.Size(150, 17);
@@ -493,7 +495,7 @@
             // 
             this.lblTezina.AutoSize = true;
             this.lblTezina.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblTezina.Location = new System.Drawing.Point(364, 278);
+            this.lblTezina.Location = new System.Drawing.Point(361, 238);
             this.lblTezina.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTezina.Name = "lblTezina";
             this.lblTezina.Size = new System.Drawing.Size(85, 17);
@@ -503,7 +505,7 @@
             // 
             // btnRacunajJezgru
             // 
-            this.btnRacunajJezgru.Location = new System.Drawing.Point(490, 100);
+            this.btnRacunajJezgru.Location = new System.Drawing.Point(487, 60);
             this.btnRacunajJezgru.Margin = new System.Windows.Forms.Padding(4);
             this.btnRacunajJezgru.Name = "btnRacunajJezgru";
             this.btnRacunajJezgru.Size = new System.Drawing.Size(143, 28);
@@ -516,7 +518,7 @@
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblDate.Location = new System.Drawing.Point(16, 53);
+            this.lblDate.Location = new System.Drawing.Point(13, 13);
             this.lblDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(49, 17);
@@ -527,7 +529,7 @@
             // 
             this.lblSnaga.AutoSize = true;
             this.lblSnaga.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblSnaga.Location = new System.Drawing.Point(364, 310);
+            this.lblSnaga.Location = new System.Drawing.Point(361, 270);
             this.lblSnaga.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSnaga.Name = "lblSnaga";
             this.lblSnaga.Size = new System.Drawing.Size(86, 17);
@@ -537,7 +539,7 @@
             // 
             // btnRacunajNamotaje
             // 
-            this.btnRacunajNamotaje.Location = new System.Drawing.Point(490, 135);
+            this.btnRacunajNamotaje.Location = new System.Drawing.Point(487, 95);
             this.btnRacunajNamotaje.Margin = new System.Windows.Forms.Padding(4);
             this.btnRacunajNamotaje.Name = "btnRacunajNamotaje";
             this.btnRacunajNamotaje.Size = new System.Drawing.Size(143, 28);
@@ -550,7 +552,7 @@
             // 
             this.lblGustocaStruje.AutoSize = true;
             this.lblGustocaStruje.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblGustocaStruje.Location = new System.Drawing.Point(260, 437);
+            this.lblGustocaStruje.Location = new System.Drawing.Point(257, 397);
             this.lblGustocaStruje.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGustocaStruje.Name = "lblGustocaStruje";
             this.lblGustocaStruje.Size = new System.Drawing.Size(136, 17);
@@ -560,11 +562,11 @@
             // 
             // btnRacunajDimenzije
             // 
-            this.btnRacunajDimenzije.Location = new System.Drawing.Point(490, 171);
+            this.btnRacunajDimenzije.Location = new System.Drawing.Point(487, 131);
             this.btnRacunajDimenzije.Margin = new System.Windows.Forms.Padding(4);
             this.btnRacunajDimenzije.Name = "btnRacunajDimenzije";
             this.btnRacunajDimenzije.Size = new System.Drawing.Size(143, 28);
-            this.btnRacunajDimenzije.TabIndex = 23;
+            this.btnRacunajDimenzije.TabIndex = 24;
             this.btnRacunajDimenzije.Text = "Racunaj dimenzije";
             this.btnRacunajDimenzije.UseVisualStyleBackColor = true;
             this.btnRacunajDimenzije.Click += new System.EventHandler(this.btnRacunajDimenzije_Click);
@@ -572,7 +574,7 @@
             // lblDimenzije
             // 
             this.lblDimenzije.AutoSize = true;
-            this.lblDimenzije.Location = new System.Drawing.Point(661, 100);
+            this.lblDimenzije.Location = new System.Drawing.Point(664, 101);
             this.lblDimenzije.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDimenzije.Name = "lblDimenzije";
             this.lblDimenzije.Size = new System.Drawing.Size(69, 17);
@@ -583,7 +585,7 @@
             // 
             this.lblPovrsinaPresjekaITezina.AutoSize = true;
             this.lblPovrsinaPresjekaITezina.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblPovrsinaPresjekaITezina.Location = new System.Drawing.Point(999, 181);
+            this.lblPovrsinaPresjekaITezina.Location = new System.Drawing.Point(1002, 182);
             this.lblPovrsinaPresjekaITezina.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPovrsinaPresjekaITezina.Name = "lblPovrsinaPresjekaITezina";
             this.lblPovrsinaPresjekaITezina.Size = new System.Drawing.Size(125, 17);
@@ -595,7 +597,7 @@
             // 
             this.lblTip.AutoSize = true;
             this.lblTip.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblTip.Location = new System.Drawing.Point(51, 469);
+            this.lblTip.Location = new System.Drawing.Point(48, 429);
             this.lblTip.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTip.Name = "lblTip";
             this.lblTip.Size = new System.Drawing.Size(28, 17);
@@ -606,7 +608,7 @@
             // 
             this.txtTip.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtTip.HideSelection = false;
-            this.txtTip.Location = new System.Drawing.Point(264, 465);
+            this.txtTip.Location = new System.Drawing.Point(261, 425);
             this.txtTip.Margin = new System.Windows.Forms.Padding(4);
             this.txtTip.Name = "txtTip";
             this.txtTip.Size = new System.Drawing.Size(67, 23);
@@ -616,11 +618,11 @@
             // btnIspis
             // 
             this.btnIspis.Enabled = false;
-            this.btnIspis.Location = new System.Drawing.Point(490, 207);
+            this.btnIspis.Location = new System.Drawing.Point(487, 167);
             this.btnIspis.Margin = new System.Windows.Forms.Padding(4);
             this.btnIspis.Name = "btnIspis";
             this.btnIspis.Size = new System.Drawing.Size(143, 28);
-            this.btnIspis.TabIndex = 24;
+            this.btnIspis.TabIndex = 25;
             this.btnIspis.Text = "Ispis";
             this.btnIspis.UseVisualStyleBackColor = true;
             this.btnIspis.Click += new System.EventHandler(this.btnIspis_Click);
@@ -643,25 +645,25 @@
             "15.0   0.050",
             "17.0   0.035",
             "17.0   0.050"});
-            this.listZiceJezgra.Location = new System.Drawing.Point(665, 165);
+            this.listZiceJezgra.Location = new System.Drawing.Point(668, 166);
             this.listZiceJezgra.Margin = new System.Windows.Forms.Padding(4);
             this.listZiceJezgra.Name = "listZiceJezgra";
             this.listZiceJezgra.Size = new System.Drawing.Size(119, 52);
-            this.listZiceJezgra.TabIndex = 15;
+            this.listZiceJezgra.TabIndex = 16;
             // 
             // txtBrojSlojevaJezgra
             // 
-            this.txtBrojSlojevaJezgra.Location = new System.Drawing.Point(887, 178);
+            this.txtBrojSlojevaJezgra.Location = new System.Drawing.Point(890, 179);
             this.txtBrojSlojevaJezgra.Margin = new System.Windows.Forms.Padding(4);
             this.txtBrojSlojevaJezgra.Name = "txtBrojSlojevaJezgra";
             this.txtBrojSlojevaJezgra.Size = new System.Drawing.Size(68, 23);
-            this.txtBrojSlojevaJezgra.TabIndex = 16;
+            this.txtBrojSlojevaJezgra.TabIndex = 17;
             // 
             // lblBrojSlojevaJezgra
             // 
             this.lblBrojSlojevaJezgra.AutoSize = true;
             this.lblBrojSlojevaJezgra.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblBrojSlojevaJezgra.Location = new System.Drawing.Point(793, 181);
+            this.lblBrojSlojevaJezgra.Location = new System.Drawing.Point(796, 182);
             this.lblBrojSlojevaJezgra.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBrojSlojevaJezgra.Name = "lblBrojSlojevaJezgra";
             this.lblBrojSlojevaJezgra.Size = new System.Drawing.Size(85, 17);
@@ -672,7 +674,7 @@
             // 
             this.lblBrojZicaPrimara.AutoSize = true;
             this.lblBrojZicaPrimara.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblBrojZicaPrimara.Location = new System.Drawing.Point(793, 300);
+            this.lblBrojZicaPrimara.Location = new System.Drawing.Point(796, 301);
             this.lblBrojZicaPrimara.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBrojZicaPrimara.Name = "lblBrojZicaPrimara";
             this.lblBrojZicaPrimara.Size = new System.Drawing.Size(118, 17);
@@ -683,7 +685,7 @@
             // 
             this.lblBrojZicaSekundara.AutoSize = true;
             this.lblBrojZicaSekundara.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblBrojZicaSekundara.Location = new System.Drawing.Point(1131, 302);
+            this.lblBrojZicaSekundara.Location = new System.Drawing.Point(1134, 303);
             this.lblBrojZicaSekundara.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBrojZicaSekundara.Name = "lblBrojZicaSekundara";
             this.lblBrojZicaSekundara.Size = new System.Drawing.Size(137, 17);
@@ -694,7 +696,7 @@
             // 
             this.lblBrojSlojevaPrimar.AutoSize = true;
             this.lblBrojSlojevaPrimar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblBrojSlojevaPrimar.Location = new System.Drawing.Point(793, 268);
+            this.lblBrojSlojevaPrimar.Location = new System.Drawing.Point(796, 269);
             this.lblBrojSlojevaPrimar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBrojSlojevaPrimar.Name = "lblBrojSlojevaPrimar";
             this.lblBrojSlojevaPrimar.Size = new System.Drawing.Size(85, 17);
@@ -703,11 +705,11 @@
             // 
             // txtBrojSlojevaPrimar
             // 
-            this.txtBrojSlojevaPrimar.Location = new System.Drawing.Point(887, 265);
+            this.txtBrojSlojevaPrimar.Location = new System.Drawing.Point(890, 266);
             this.txtBrojSlojevaPrimar.Margin = new System.Windows.Forms.Padding(4);
             this.txtBrojSlojevaPrimar.Name = "txtBrojSlojevaPrimar";
             this.txtBrojSlojevaPrimar.Size = new System.Drawing.Size(68, 23);
-            this.txtBrojSlojevaPrimar.TabIndex = 18;
+            this.txtBrojSlojevaPrimar.TabIndex = 19;
             // 
             // listZicePrimar
             // 
@@ -727,17 +729,17 @@
             "15.0   0.050",
             "17.0   0.035",
             "17.0   0.050"});
-            this.listZicePrimar.Location = new System.Drawing.Point(665, 263);
+            this.listZicePrimar.Location = new System.Drawing.Point(668, 264);
             this.listZicePrimar.Margin = new System.Windows.Forms.Padding(4);
             this.listZicePrimar.Name = "listZicePrimar";
             this.listZicePrimar.Size = new System.Drawing.Size(119, 52);
-            this.listZicePrimar.TabIndex = 17;
+            this.listZicePrimar.TabIndex = 18;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.Location = new System.Drawing.Point(1131, 265);
+            this.label1.Location = new System.Drawing.Point(1134, 266);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 17);
@@ -746,11 +748,11 @@
             // 
             // txtBrojSlojevaSekundar
             // 
-            this.txtBrojSlojevaSekundar.Location = new System.Drawing.Point(1225, 262);
+            this.txtBrojSlojevaSekundar.Location = new System.Drawing.Point(1228, 263);
             this.txtBrojSlojevaSekundar.Margin = new System.Windows.Forms.Padding(4);
             this.txtBrojSlojevaSekundar.Name = "txtBrojSlojevaSekundar";
             this.txtBrojSlojevaSekundar.Size = new System.Drawing.Size(68, 23);
-            this.txtBrojSlojevaSekundar.TabIndex = 21;
+            this.txtBrojSlojevaSekundar.TabIndex = 22;
             // 
             // listZiceSekundar
             // 
@@ -770,17 +772,17 @@
             "15.0   0.050",
             "17.0   0.035",
             "17.0   0.050"});
-            this.listZiceSekundar.Location = new System.Drawing.Point(1003, 260);
+            this.listZiceSekundar.Location = new System.Drawing.Point(1006, 261);
             this.listZiceSekundar.Margin = new System.Windows.Forms.Padding(4);
             this.listZiceSekundar.Name = "listZiceSekundar";
             this.listZiceSekundar.Size = new System.Drawing.Size(119, 52);
-            this.listZiceSekundar.TabIndex = 20;
+            this.listZiceSekundar.TabIndex = 21;
             // 
             // lblJezgra
             // 
             this.lblJezgra.AutoSize = true;
             this.lblJezgra.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblJezgra.Location = new System.Drawing.Point(661, 141);
+            this.lblJezgra.Location = new System.Drawing.Point(664, 142);
             this.lblJezgra.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblJezgra.Name = "lblJezgra";
             this.lblJezgra.Size = new System.Drawing.Size(63, 17);
@@ -805,7 +807,7 @@
             // 
             this.lblPrimar.AutoSize = true;
             this.lblPrimar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblPrimar.Location = new System.Drawing.Point(661, 240);
+            this.lblPrimar.Location = new System.Drawing.Point(664, 241);
             this.lblPrimar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPrimar.Name = "lblPrimar";
             this.lblPrimar.Size = new System.Drawing.Size(49, 17);
@@ -816,7 +818,7 @@
             // 
             this.lblSekundar.AutoSize = true;
             this.lblSekundar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblSekundar.Location = new System.Drawing.Point(999, 240);
+            this.lblSekundar.Location = new System.Drawing.Point(1002, 241);
             this.lblSekundar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSekundar.Name = "lblSekundar";
             this.lblSekundar.Size = new System.Drawing.Size(69, 17);
@@ -828,11 +830,11 @@
             this.listZice1.Font = new System.Drawing.Font("Consolas", 11F);
             this.listZice1.FormattingEnabled = true;
             this.listZice1.ItemHeight = 18;
-            this.listZice1.Location = new System.Drawing.Point(665, 338);
+            this.listZice1.Location = new System.Drawing.Point(668, 339);
             this.listZice1.Margin = new System.Windows.Forms.Padding(4);
             this.listZice1.Name = "listZice1";
             this.listZice1.Size = new System.Drawing.Size(240, 184);
-            this.listZice1.TabIndex = 19;
+            this.listZice1.TabIndex = 20;
             this.listZice1.SelectedIndexChanged += new System.EventHandler(this.listZice1_SelectedIndexChanged);
             // 
             // listZice2
@@ -840,18 +842,18 @@
             this.listZice2.Font = new System.Drawing.Font("Consolas", 11F);
             this.listZice2.FormattingEnabled = true;
             this.listZice2.ItemHeight = 18;
-            this.listZice2.Location = new System.Drawing.Point(1002, 338);
+            this.listZice2.Location = new System.Drawing.Point(1005, 339);
             this.listZice2.Margin = new System.Windows.Forms.Padding(4);
             this.listZice2.Name = "listZice2";
             this.listZice2.Size = new System.Drawing.Size(240, 184);
-            this.listZice2.TabIndex = 22;
+            this.listZice2.TabIndex = 23;
             this.listZice2.SelectedIndexChanged += new System.EventHandler(this.listZice2_SelectedIndexChanged);
             // 
             // lblPromjerZicePrimNovo
             // 
             this.lblPromjerZicePrimNovo.AutoSize = true;
             this.lblPromjerZicePrimNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblPromjerZicePrimNovo.Location = new System.Drawing.Point(392, 582);
+            this.lblPromjerZicePrimNovo.Location = new System.Drawing.Point(389, 542);
             this.lblPromjerZicePrimNovo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPromjerZicePrimNovo.Name = "lblPromjerZicePrimNovo";
             this.lblPromjerZicePrimNovo.Size = new System.Drawing.Size(190, 17);
@@ -863,7 +865,7 @@
             // 
             this.lblPromjerZiceSekNovo.AutoSize = true;
             this.lblPromjerZiceSekNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblPromjerZiceSekNovo.Location = new System.Drawing.Point(392, 672);
+            this.lblPromjerZiceSekNovo.Location = new System.Drawing.Point(389, 632);
             this.lblPromjerZiceSekNovo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPromjerZiceSekNovo.Name = "lblPromjerZiceSekNovo";
             this.lblPromjerZiceSekNovo.Size = new System.Drawing.Size(185, 17);
@@ -874,7 +876,7 @@
             // lblZagrijavanje
             // 
             this.lblZagrijavanje.AutoSize = true;
-            this.lblZagrijavanje.Location = new System.Drawing.Point(662, 555);
+            this.lblZagrijavanje.Location = new System.Drawing.Point(665, 556);
             this.lblZagrijavanje.Name = "lblZagrijavanje";
             this.lblZagrijavanje.Size = new System.Drawing.Size(100, 17);
             this.lblZagrijavanje.TabIndex = 70;
@@ -883,10 +885,10 @@
             // 
             // btnZagrijavanje
             // 
-            this.btnZagrijavanje.Location = new System.Drawing.Point(490, 242);
+            this.btnZagrijavanje.Location = new System.Drawing.Point(487, 202);
             this.btnZagrijavanje.Name = "btnZagrijavanje";
             this.btnZagrijavanje.Size = new System.Drawing.Size(143, 28);
-            this.btnZagrijavanje.TabIndex = 71;
+            this.btnZagrijavanje.TabIndex = 29;
             this.btnZagrijavanje.Text = "Zagrijavanje";
             this.btnZagrijavanje.UseVisualStyleBackColor = true;
             this.btnZagrijavanje.Click += new System.EventHandler(this.btnZagrijavanje_Click);
@@ -894,7 +896,7 @@
             // lblDozvoljenoZagrijavanje
             // 
             this.lblDozvoljenoZagrijavanje.AutoSize = true;
-            this.lblDozvoljenoZagrijavanje.Location = new System.Drawing.Point(662, 582);
+            this.lblDozvoljenoZagrijavanje.Location = new System.Drawing.Point(665, 583);
             this.lblDozvoljenoZagrijavanje.Name = "lblDozvoljenoZagrijavanje";
             this.lblDozvoljenoZagrijavanje.Size = new System.Drawing.Size(187, 17);
             this.lblDozvoljenoZagrijavanje.TabIndex = 72;
@@ -903,7 +905,7 @@
             // lblDebljinaNamotaja
             // 
             this.lblDebljinaNamotaja.AutoSize = true;
-            this.lblDebljinaNamotaja.Location = new System.Drawing.Point(662, 617);
+            this.lblDebljinaNamotaja.Location = new System.Drawing.Point(665, 618);
             this.lblDebljinaNamotaja.Name = "lblDebljinaNamotaja";
             this.lblDebljinaNamotaja.Size = new System.Drawing.Size(157, 17);
             this.lblDebljinaNamotaja.TabIndex = 73;
@@ -912,7 +914,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(662, 656);
+            this.label4.Location = new System.Drawing.Point(665, 657);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(184, 17);
             this.label4.TabIndex = 74;
@@ -920,24 +922,40 @@
             // 
             // txtDozvoljenoZagrijavanje
             // 
-            this.txtDozvoljenoZagrijavanje.Location = new System.Drawing.Point(855, 579);
+            this.txtDozvoljenoZagrijavanje.Location = new System.Drawing.Point(858, 580);
             this.txtDozvoljenoZagrijavanje.Name = "txtDozvoljenoZagrijavanje";
             this.txtDozvoljenoZagrijavanje.Size = new System.Drawing.Size(100, 23);
-            this.txtDozvoljenoZagrijavanje.TabIndex = 75;
+            this.txtDozvoljenoZagrijavanje.TabIndex = 26;
             // 
             // txtDebljinaNamotaja
             // 
-            this.txtDebljinaNamotaja.Location = new System.Drawing.Point(855, 614);
+            this.txtDebljinaNamotaja.Location = new System.Drawing.Point(858, 615);
             this.txtDebljinaNamotaja.Name = "txtDebljinaNamotaja";
             this.txtDebljinaNamotaja.Size = new System.Drawing.Size(100, 23);
-            this.txtDebljinaNamotaja.TabIndex = 76;
+            this.txtDebljinaNamotaja.TabIndex = 27;
             // 
             // txtMaxGustocaStruje
             // 
-            this.txtMaxGustocaStruje.Location = new System.Drawing.Point(855, 653);
+            this.txtMaxGustocaStruje.Location = new System.Drawing.Point(858, 654);
             this.txtMaxGustocaStruje.Name = "txtMaxGustocaStruje";
             this.txtMaxGustocaStruje.Size = new System.Drawing.Size(100, 23);
-            this.txtMaxGustocaStruje.TabIndex = 77;
+            this.txtMaxGustocaStruje.TabIndex = 28;
+            // 
+            // lblRBR
+            // 
+            this.lblRBR.AutoSize = true;
+            this.lblRBR.Location = new System.Drawing.Point(796, 101);
+            this.lblRBR.Name = "lblRBR";
+            this.lblRBR.Size = new System.Drawing.Size(77, 17);
+            this.lblRBR.TabIndex = 79;
+            this.lblRBR.Text = "Redni broj:";
+            // 
+            // txtRBR
+            // 
+            this.txtRBR.Location = new System.Drawing.Point(879, 98);
+            this.txtRBR.Name = "txtRBR";
+            this.txtRBR.Size = new System.Drawing.Size(100, 23);
+            this.txtRBR.TabIndex = 15;
             // 
             // Form1
             // 
@@ -945,6 +963,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1320, 722);
+            this.Controls.Add(this.txtRBR);
+            this.Controls.Add(this.lblRBR);
             this.Controls.Add(this.txtMaxGustocaStruje);
             this.Controls.Add(this.txtDebljinaNamotaja);
             this.Controls.Add(this.txtDozvoljenoZagrijavanje);
@@ -1109,6 +1129,8 @@
         private System.Windows.Forms.TextBox txtDozvoljenoZagrijavanje;
         private System.Windows.Forms.TextBox txtDebljinaNamotaja;
         private System.Windows.Forms.TextBox txtMaxGustocaStruje;
+        private System.Windows.Forms.Label lblRBR;
+        private System.Windows.Forms.TextBox txtRBR;
     }
 }
 
