@@ -12,34 +12,57 @@ using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using System.Diagnostics;
 using System.IO;
+using Microsoft.Win32;
 
 namespace toroid
 {
     public partial class Form1 : Form
-    {
+    {      
         static public int brz_prim, brz_sek, ssek1;
         static public string RBR;
+        static public int godina = Convert.ToInt32(Registry.GetValue(@"HKEY_CURRENT_USER\Toroid", "Godina", 0).ToString());
         static public double f, fak_3, snaga, r_snaga, Afe, Dizo = 0.2;
         static public double un_pr_je, va_pr_je, sir_je, T_jez, prim_U, sek_U, i_prim, i_sek;
         static public double sir_izo, dulj_izo, dulj_izo_pr;
         static public double n_prim, n_sek, dsek, dostn, aostn;
         static public double fi_prim_staro, fi_sek_staro;
         static public double dt, d_nam, gpros, k;
-        static public double fi_prim, fi_sek, pr_prim, pr_sek;
+        static public double fi_prim, fi_sek, pr_prim, pr_sek;   
         static public double K_U, p_gub_jez, B, pr_sek_u, gsek, Gi_sek;
         static public double lprim, t_prim, rprim, gprim, Gi_prim, dprim, sprim, p_gub, dost_ko;
         static public double s_izo_p, s_izo_s, n_sek_n, n_prim_n, lsek, rsek, t_sek, l_izo_s, suk_ko, vuk_ko;
         static public double ssek, opseg1, opseg2, dost, aost, ajez, acu_sek, acu_prim;
         static public double RW2_PR, RW2_SE, RW3_PR, RW3_SE;
-
         static public List<string> sifra = new List<string>();      //
         static public List<string> promjer = new List<string>();    //liste za spremanje podataka iz baze (.csv file)
         static public List<string> presjek = new List<string>();    //
+        static public int redniBroj;      
 
         public Form1()
         {
             InitializeComponent();
             citanje_baze_zica();
+            if (godina == 0)
+            {
+                godina = Convert.ToInt32(DateTime.Now.Year.ToString().Substring(2, 2));
+            }
+            else if (godina == Convert.ToInt32(DateTime.Now.Year.ToString().Substring(2, 2)))
+            {
+                redniBroj = Convert.ToInt32(Registry.GetValue(@"HKEY_CURRENT_USER\Toroid", "Redni broj naloga", 0).ToString());
+                redniBroj++;
+            }
+
+            else redniBroj = 001;
+        }
+
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SelectNextControl(ActiveControl, true, true, true, true);
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -51,6 +74,9 @@ namespace toroid
                 lblDate.Text = FirstCharToUpper(culture.DateTimeFormat.GetDayName(DateTime.Today.DayOfWeek).ToString()) + ", " + DateTime.Now.ToString();
             };
             timer.Start();
+            RBNtext.Text = redniBroj.ToString().PadLeft(3, '0'); 
+            RBNTXT.Text = "/" + Convert.ToInt32(DateTime.Now.Year.ToString().Substring(2, 2)) + "-PR";
+            RBR = RBNtext.Text;
         }
 
         public static string FirstCharToUpper(string input)
@@ -62,9 +88,12 @@ namespace toroid
 
         private void listZice1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            fi_prim = Convert.ToDouble(listZice1.SelectedValue.ToString().Substring(7, 4));
+            string str = listZice1.SelectedValue.ToString().Substring(7, 4);
+            if (str == "----") fi_prim = 0;
+            else fi_prim = Convert.ToDouble(str);
+            
             brz_prim = Convert.ToInt16(listZice1.SelectedValue.ToString().Substring(0, 2).Trim(' '));
-            lblBrojZicaPrimara.Text = "Broj žica primara: " + brz_prim.ToString();
+            lblBrojZicaPrimara.Text = "Broj žica primara: " + brz_prim.ToString(); 
         }
 
         private void listZice2_SelectedIndexChanged(object sender, EventArgs e)
@@ -89,9 +118,9 @@ namespace toroid
             double nam_izo = ((Form1.va_pr_je * Math.PI) / sir_izo) * slojeva;
             double opseg_i = (Form1.va_pr_je - Form1.un_pr_je) + 2 * sir_je;
             dulj_izo = Math.Round((nam_izo * opseg_i) / 1000, 2); */
-        }
+    }
 
-        private void btnRacunaj_Click(object sender, EventArgs e)
+    private void btnRacunaj_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtVanjskiPromjer.Text) || string.IsNullOrWhiteSpace(txtUnutarnjiPromjer.Text) || string.IsNullOrWhiteSpace(txtSirinaJezgre.Text))
             {
@@ -142,6 +171,12 @@ namespace toroid
                 lblSnaga.Show();
             }
             txtNazivnaSnaga.Text = Math.Round(snaga, 1).ToString("0.00");
+            txtFrekvencija.Focus();
+        }
+
+        private void btnNoviNalog_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
 
         private void btnRacunajNamotaje_Click(object sender, EventArgs e)
@@ -231,6 +266,9 @@ namespace toroid
 
             listZice1.DataSource = izbor_z(fi_prim);
             listZice2.DataSource = izbor_z(fi_sek);
+
+            listZiceJezgra.Focus();
+            listZiceJezgra.SelectedIndex=11;            
         }
 
         private void citanje_baze_zica()
@@ -302,9 +340,43 @@ namespace toroid
 
             return returnvalues;
         }
+        private void txtBrojSlojevaJezgra_Leave(object sender, EventArgs e)
+        {
+            listZicePrimar.SelectedIndex = 11;            
+        }  
+        private void listZice1_leave(object sender, EventArgs e)
+        {
+            txtListZice1.Text = fi_prim.ToString();            
+            txtListZice1.Focus();
+        }
+        private void listZice2_Leave(object sender, EventArgs e)
+        {
+            txtListZice2.Text = fi_sek.ToString();
+            txtListZice2.Focus();
+        }
+        private void txtListZice1_Leave(object sender, EventArgs e)
+        {
+            listZiceSekundar.Focus();
+            listZiceSekundar.SelectedIndex = 11;
+        }
+        private void txtListZice2_Leave(object sender, EventArgs e)
+        {
+            btnRacunajDimenzije.Focus();
+        }       
+        private void dateTimePicker1_Leave(object sender, EventArgs e)
+        {
+            btnIspis.Focus();
+        }
+        private void txtPromjenaRbr_Leave(object sender, EventArgs e)
+        {
+            PromjenaRbr.Focus();
+        }
 
         private void btnRacunajDimenzije_Click(object sender, EventArgs e)
         {
+            fi_prim = Convert.ToDouble(txtListZice1.Text); 
+            fi_sek = Convert.ToDouble(txtListZice2.Text);
+
             if (string.IsNullOrWhiteSpace(txtBrojSlojevaJezgra.Text) || string.IsNullOrWhiteSpace(txtBrojSlojevaPrimar.Text) || string.IsNullOrWhiteSpace(txtBrojSlojevaSekundar.Text))
             {
                 MessageBox.Show("Broj slojeva je obavezno polje!");
@@ -425,9 +497,7 @@ namespace toroid
             //--- izolacija sekundara
 
             //sprim = Math.Round((n_prim * brz_prim) / (((un_pr_no * Math.PI + dost * Math.PI) / 2) / (fi_prim + 0.05)) + 0.499999, 0);
-
-
-
+            
             lblJezgra.Text = "JEZGRA: " + Math.Round(snaga, 0).ToString() + " / " + Math.Round(snaga, 1).ToString("0.00") + " (VA)   B = " + B.ToString("0.000") + "(T)";
             lblPrimar.Text = "PRIMAR: " + prim_U.ToString("0.00") + " (V) / " + Math.Round(i_prim, 3).ToString("0.000") + " (A)";
 
@@ -439,9 +509,7 @@ namespace toroid
 
             int slojevi_primar = Convert.ToInt32(txtBrojSlojevaPrimar.Text);
             dulj_izo_pr = izolacija(s_izo_p, sir_pr, va_pr_pr, un_pr_pr, slojevi_primar);
-
-
-
+            
             gsek = i_sek / (Math.Pow(fi_sek / 2, 2) * Math.PI * brz_sek);
 
             int slojevi_sekundar = Convert.ToInt32(txtBrojSlojevaSekundar.Text);
@@ -475,9 +543,14 @@ namespace toroid
             d_nam = dprim + dsek;
 
             txtDebljinaNamotaja.Text = d_nam.ToString("0.0");
-            txtMaxGustocaStruje.Text = gpros.ToString("0.00");
-
-            RBR = txtRBR.Text;
+            txtMaxGustocaStruje.Text = gpros.ToString("0.00");           
+            btnZagrijavanje.Focus();
+        }
+        private void PromjenaRbr_Click(object sender, EventArgs e)
+        {
+            RBNtext.Text = txtPromjenaRbr.Text.ToString().PadLeft(3, '0');
+            RBNTXT.Text = "/" + godina + "-PR-a";
+            btnIspis.Focus();
         }
 
         private void btnIspis_Click(object sender, EventArgs e)
@@ -489,13 +562,13 @@ namespace toroid
             var culture = new System.Globalization.CultureInfo("hr-HR");
             PdfDocument pdf = new PdfDocument();
             XPdfFontOptions options = new XPdfFontOptions(PdfFontEncoding.Unicode, PdfFontEmbedding.Always);
-            pdf.Info.Title = "Toroid ispis 1";
+            pdf.Info.Title = "Toroid" + DateTime.Today;
             PdfPage pdfPage = pdf.AddPage();
             XGraphics graph = XGraphics.FromPdfPage(pdfPage);
             XFont font = new XFont("Consolas", 12, XFontStyle.Regular, options);
             graph.DrawString(FirstCharToUpper(culture.DateTimeFormat.GetDayName(DateTime.Today.DayOfWeek).ToString()) + ", " + DateTime.Now.ToString(), font, XBrushes.Black, new XRect(lpoz, 10, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
             graph.DrawString("-------------------------------------------------------------------------------------", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
-            graph.DrawString("TOROID d.o.o.            PRORAČUN TOROIDNOG TRANSFORMATORA                Broj: " + RBR, font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
+            graph.DrawString("TOROID-ENERGIJA d.o.o.    PRORAČUN TOROIDNOG TRANSFORMATORA           Broj: " + RBNtext.Text.ToString() + RBNTXT.Text.ToString(), font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
             graph.DrawString("-------------------------------------------------------------------------------------", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
             graph.DrawString("JEZGRA: " + Math.Round(snaga, 0) + " / " + Math.Round(snaga, 1).ToString("0.00") + " (VA)   B = " + B.ToString("0.000") + " (T)", font, XBrushes.Black, new XRect(50, poz += 15, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
             graph.DrawString("-------------------------------------------------------------------------------------", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
@@ -549,9 +622,13 @@ namespace toroid
             graph.DrawString("Težina transformatora: " + Math.Round((T_jez * 1000) + t_prim + t_sek, 1).ToString("0.0") + " (gr)", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
             graph.DrawString("Termički gubici: " + Math.Round(p_gub, 1).ToString("0.0") + " (W)", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
             graph.DrawString("---------------------------------------------------------------------------------------", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
+            graph.DrawString("Naručitelj: " + txtNarucitelj.Text.ToString() + "        " + "Komada:" + txtKomada.Text.ToString(), font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
+            graph.DrawString("Rok izrade: " + dateTimePicker1.Value.ToLongDateString() + " " + FirstCharToUpper(culture.DateTimeFormat.GetDayName(dateTimePicker1.Value.DayOfWeek).ToString()), font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
+            graph.DrawString("-------------------------------------------------------------------------------------", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage.Width.Point, pdfPage.Height.Point), XStringFormats.TopLeft);
 
-            string desktop = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-            string pdfFilename = System.IO.Path.Combine(desktop, "toroid_ispis_1.pdf");
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/Toroid";
+            string pdfFilename = System.IO.Path.Combine(path, ("PR-" + Convert.ToInt32(DateTime.Now.Year.ToString().Substring(2, 2)) +"-" + RBR  + "-proračun" + ".pdf"));
+           
             pdf.Save(pdfFilename);
             Process.Start(pdfFilename);
             // -----------------------------------------------------------------------------------------------------------------------
@@ -563,8 +640,8 @@ namespace toroid
             XGraphics graph2 = XGraphics.FromPdfPage(pdfPage2);
             poz = 30;
             graph2.DrawString(FirstCharToUpper(culture.DateTimeFormat.GetDayName(DateTime.Today.DayOfWeek).ToString()) + ", " + DateTime.Now.ToString(), font, XBrushes.Black, new XRect(lpoz, 10, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
-            graph2.DrawString("-------------------------------------------------------------------------------------", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
-            graph2.DrawString("TOROID d.o.o.           NALOG ZA IZRADU TOROIDNIH TRANSFORMATORA          Broj: " + RBR, font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
+            graph2.DrawString("-------------------------------------------------------------------------------------", font, XBrushes.Black, new XRect(lpoz, poz += 5, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
+            graph2.DrawString("TOROID-ENERGIJA d.o.o.   NALOG ZA IZRADU TOROIDNIH TRANSFORMATORA    Broj: " + RBNtext.Text.ToString() + RBNTXT.Text.ToString(), font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
             graph2.DrawString("-------------------------------------------------------------------------------------", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
             graph2.DrawString("JEZGRA: " + snaga.ToString("0.00") + " (VA)", font, XBrushes.Black, new XRect(50, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
             graph2.DrawString("-------------------------------------------------------------------------------------", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
@@ -596,12 +673,40 @@ namespace toroid
             graph2.DrawString("Unutarnji promjer: " + Math.Round(dost_ko, 1).ToString("0.0") + " (mm)", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
             graph2.DrawString("Ukupna visina: " + Math.Round(vuk_ko, 1).ToString("0.0") + " (mm)", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
             graph2.DrawString("-------------------------------------------------------------------------------------", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
+            graph2.DrawString("Naručitelj: " + txtNarucitelj.Text.ToString() + "        " + "Komada: " + txtKomada.Text.ToString(), font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
+            graph2.DrawString("Rok izrade: " + dateTimePicker1.Value.ToLongDateString() + "  " +FirstCharToUpper(culture.DateTimeFormat.GetDayName(dateTimePicker1.Value.DayOfWeek).ToString()), font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
+            graph2.DrawString("-------------------------------------------------------------------------------------", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
+            graph2.DrawString("IZOLACIJA JEZGRE", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
+            graph2.DrawString("Širina trake: " + sir_izo.ToString() + "mm,     Slojeva: " + txtBrojSlojevaJezgra.Text.ToString() + ",      Korak:____________" , font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
+            graph2.DrawString("Namotaja magazin:_________________________           Izradio:____________________" , font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
+            graph2.DrawString("-------------------------------------------------------------------------------------", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
+            graph2.DrawString("NAMATANJE PRIMARA", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
+            graph2.DrawString("Magazin:_____________________________    Korak:____________", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
+            graph2.DrawString("Namotaja magazin:_________________________           Izradio:____________________", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
+            graph2.DrawString("-------------------------------------------------------------------------------------", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
+            graph2.DrawString("IZOLACIJA PRIMARA", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
+            graph2.DrawString("Širina trake: " + s_izo_p.ToString() + "mm,     Slojeva: " + txtBrojSlojevaPrimar.Text.ToString() + ",      Korak:____________", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
+            graph2.DrawString("Namotaja magazin:_________________________           Izradio:____________________", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
+            graph2.DrawString("-------------------------------------------------------------------------------------", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
+            graph2.DrawString("NAMATANJE SEKUNDARA", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
+            graph2.DrawString("Magazin:_____________________________    Korak:____________", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
+            graph2.DrawString("Namotaja magazin:_________________________           Izradio:____________________", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
+            graph2.DrawString("-------------------------------------------------------------------------------------", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
+            graph2.DrawString("IZOLACIJA SEKUNDARA", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
+            graph2.DrawString("Širina trake: " + s_izo_s.ToString() + "mm,     Slojeva: " + txtBrojSlojevaSekundar.Text.ToString()+ ",      Korak:____________", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
+            graph2.DrawString("Namotaja magazin:_________________________           Izradio:____________________", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
+            graph2.DrawString("-------------------------------------------------------------------------------------", font, XBrushes.Black, new XRect(lpoz, poz += 15, pdfPage2.Width.Point, pdfPage2.Height.Point), XStringFormats.TopLeft);
 
-            string pdfFilename2 = System.IO.Path.Combine(desktop, "toroid_ispis_2.pdf");
+            string pdfFilename2 = System.IO.Path.Combine(path, ("PR-" + Convert.ToInt32(DateTime.Now.Year.ToString().Substring(2, 2)) + "-" + RBR + "-nalog" + ".pdf"));
             pdf2.Save(pdfFilename2);
             Process.Start(pdfFilename2);
 
-            MessageBox.Show("PDF datoteke spremljene na radnu površinu.");
+            MessageBox.Show("PDF datoteke spremljene u mapu.");
+            Microsoft.Win32.RegistryKey exampleRegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Toroid");
+            exampleRegistryKey.SetValue("Redni broj naloga", RBR);
+            Microsoft.Win32.RegistryKey exampleRegistryKey2 = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("Toroid");
+            exampleRegistryKey.SetValue("Godina", godina);
+            exampleRegistryKey.Close();
         }
 
         private void btnZagrijavanje_Click(object sender, EventArgs e)
@@ -630,8 +735,9 @@ namespace toroid
                 {
                     gpros = k * Math.Sqrt((dt / 2) / ((1 + d_nam / 30) * (d_nam / 10)));
                     txtMaxGustocaStruje.Text = gpros.ToString();
-                }
+                }                
             }
+            txtNarucitelj.Focus();
         }
     }
 }
